@@ -1,0 +1,391 @@
+/* --- css/style.css --- */
+/* Final Combined Styles for Survey Application */
+
+/* == START Color Palette & Font Variables == */
+:root {
+    --color-primary: #4A90E2; /* Primary Blue */
+    --color-primary-dark: #357ABD; /* Darker Blue */
+    --color-secondary: #6c757d; /* Gray */
+    --color-secondary-dark: #5a6268; /* Darker Gray */
+    --color-success: #28a745; /* Green */
+    --color-success-dark: #218838; /* Darker Green */
+    --color-danger: #dc3545; /* Red */
+    --color-danger-dark: #c82333; /* Darker Red */
+    --color-warning: #ffc107; /* Yellow */
+    --color-info: #17a2b8; /* Teal */
+    --color-info-dark: #138496; /* Darker Teal */
+    --color-light: #f8f9fa; /* Light Gray Background */
+    --color-medium-light: #e9ecef; /* Medium Light Gray */
+    --color-border: #dee2e6; /* Standard Border Gray */
+    --color-dark: #343a40; /* Dark Gray/Black for text/headers */
+    --color-body-text: #495057; /* Body Text Gray */
+    --color-white: #ffffff;
+    --color-link: var(--color-primary);
+    --color-link-hover: var(--color-primary-dark);
+
+    /* Font Families (Ensure these are loaded via <link> in HTML head) */
+    --font-body: 'Lato', sans-serif;
+    --font-heading: 'Poppins', sans-serif;
+}
+/* == END Color Palette & Font Variables == */
+
+/* Refined Admin Header Navigation */
+.admin-header {
+    padding: 10px 40px; /* Adjust padding slightly */
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1); /* Add subtle shadow */
+}
+.admin-header nav {
+    display: flex; /* Use flexbox for alignment */
+    align-items: center;
+}
+.admin-header nav a {
+    color: #e9ecef; /* Lighter link color */
+    margin-left: 15px; /* Adjust spacing */
+    padding: 8px 12px; /* Add padding to make links clickable areas */
+    border-radius: 4px;
+    font-weight: 500;
+    transition: background-color 0.2s ease, color 0.2s ease;
+    text-decoration: none; /* Remove underline */
+}
+.admin-header nav a:hover,
+.admin-header nav a:focus { /* Add focus style for accessibility */
+    background-color: rgba(255, 255, 255, 0.1); /* Subtle background on hover/focus */
+    color: var(--color-white);
+    text-decoration: none; /* Ensure no underline on hover */
+}
+.admin-header nav a:last-child { /* Style logout differently? Optional */
+    /* Example: background-color: rgba(255, 99, 132, 0.1); */
+}
+
+
+/* Refined Admin Table Styling */
+.admin-table {
+    width: 100%;
+    border-collapse: collapse; /* Ensure borders connect cleanly */
+    margin-top: 30px; /* More space above table */
+    font-size: 0.95em;
+    border: 1px solid var(--color-border); /* Add outer border */
+    box-shadow: 0 1px 3px rgba(0,0,0,0.04); /* Subtle shadow on table */
+    border-radius: 5px; /* Rounded corners for the table */
+    overflow: hidden; /* Ensures radius applies to content */
+}
+.admin-table th,
+.admin-table td {
+    /* Keep existing border: 1px solid var(--color-border); */
+    padding: 14px 18px; /* Increase padding */
+    text-align: left;
+    vertical-align: middle;
+}
+.admin-table th {
+    background-color: var(--color-light); /* Use light background */
+    font-weight: 600;
+    color: var(--color-dark);
+    border-bottom: 2px solid var(--color-border); /* Stronger bottom border */
+    white-space: nowrap;
+}
+/* Zebra-striping (overrides previous simple even style if it existed) */
+.admin-table tbody tr {
+     border-bottom: 1px solid var(--color-border); /* Line between rows */
+}
+.admin-table tbody tr:nth-of-type(even) {
+    background-color: var(--color-light); /* Use light for even rows */
+}
+.admin-table tbody tr:nth-of-type(odd) {
+    background-color: var(--color-white); /* Explicit white for odd */
+}
+.admin-table tbody tr:last-child {
+     border-bottom: none; /* No bottom border on last row */
+}
+/* Hover effect for table rows */
+.admin-table tbody tr:hover {
+    background-color: #e9ecef; /* Use medium-light for hover */
+}
+/* Ensure action links align well */
+.admin-table td:last-child {
+    text-align: right; /* Keep right aligned */
+    white-space: nowrap;
+    padding-right: 18px;
+}
+.admin-table .action-link,
+.admin-table .button-link-style { /* Target both links and button-styled links */
+     font-size: 0.9em;
+     margin: 0 5px; /* Consistent spacing */
+}
+
+/* == END Admin Panel Refinements == */
+
+
+
+/* == General Reset / Defaults == */
+body {
+    font-family: var(--font-body);
+    font-size: 16px;
+    line-height: 1.7; /* Adjusted line height for readability */
+    color: var(--color-body-text);
+    background-color: #f4f7f6; /* Slightly off-white main background */
+    margin: 0;
+    padding: 0;
+    -webkit-font-smoothing: antialiased; /* Smoother fonts */
+    -moz-osx-font-smoothing: grayscale;
+}
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+a {
+    color: var(--color-link);
+    text-decoration: none;
+    transition: color 0.2s ease;
+}
+a:hover {
+    color: var(--color-link-hover);
+    text-decoration: underline;
+}
+
+h1, h2, h3, h4, h5, h6 {
+    font-family: var(--font-heading);
+    color: var(--color-dark);
+    margin-top: 1.2em;
+    margin-bottom: 0.6em;
+    line-height: 1.4;
+    font-weight: 600;
+}
+h1 { font-size: 2.3em; font-weight: 700; }
+h2 { font-size: 1.9em; }
+h3 { font-size: 1.6em; }
+h4 { font-size: 1.3em; }
+h5 { font-size: 1.15em; font-weight: 500; }
+
+hr {
+    border: 0;
+    height: 1px;
+    background-color: var(--color-border);
+    margin: 30px 0; /* Increased spacing */
+}
+
+/* == Layout Containers == */
+.admin-container,
+.survey-container,
+.main-container {
+    max-width: 1100px;
+    margin: 30px auto;
+    padding: 30px 40px; /* Generous padding */
+    background-color: var(--color-white);
+    border: 1px solid var(--color-border);
+    border-radius: 8px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.07);
+}
+.survey-container { /* Specific width for survey forms */
+    max-width: 800px;
+}
+
+/* == Buttons (General) == */
+.button, button[type="submit"], input[type="submit"] {
+    display: inline-block;
+    font-family: var(--font-body); /* Use body font for buttons */
+    font-weight: 500;
+    color: var(--color-white);
+    text-align: center;
+    vertical-align: middle;
+    cursor: pointer;
+    user-select: none;
+    background-color: var(--color-primary);
+    border: 1px solid var(--color-primary);
+    padding: 10px 20px;
+    font-size: 1em;
+    line-height: 1.5;
+    border-radius: 5px;
+    transition: color .15s ease-in-out,background-color .15s ease-in-out,border-color .15s ease-in-out,box-shadow .15s ease-in-out, transform 0.1s ease;
+    text-decoration: none;
+    margin-right: 8px;
+}
+.button:hover, button[type="submit"]:hover, input[type="submit"]:hover {
+    background-color: var(--color-primary-dark);
+    border-color: var(--color-primary-dark);
+    color: var(--color-white);
+    text-decoration: none;
+}
+.button:active, button[type="submit"]:active, input[type="submit"]:active {
+    transform: scale(0.98);
+}
+.button.add-new { background-color: var(--color-success); border-color: var(--color-success); }
+.button.add-new:hover { background-color: var(--color-success-dark); border-color: var(--color-success-dark); }
+.button.cancel { background-color: var(--color-secondary); border-color: var(--color-secondary); }
+.button.cancel:hover { background-color: var(--color-secondary-dark); border-color: var(--color-secondary-dark); }
+.button.filter-button { background-color: var(--color-info); border-color: var(--color-info); }
+.button.filter-button:hover { background-color: var(--color-info-dark); border-color: var(--color-info-dark); }
+
+/* Style for buttons designed to look like links */
+.button-link-style {
+    background: none; border: none; padding: 0;
+    color: var(--color-link); text-decoration: underline; cursor: pointer;
+    font-size: inherit; font-family: inherit; vertical-align: baseline; margin: 0 4px;
+}
+.button-link-style:hover { color: var(--color-link-hover); background: none; border: none; transform: none; text-decoration: underline; }
+.button-link-style.delete-link { color: var(--color-danger); }
+.button-link-style.delete-link:hover { color: var(--color-danger-dark); }
+
+
+/* == Forms (General & Basic Admin/Survey) == */
+.form-basic .form-group, .survey-form fieldset.question-group { margin-bottom: 25px; }
+.form-basic label, .survey-form legend {
+    display: block; margin-bottom: 8px; font-weight: 600; color: var(--color-dark); font-size: 1em; font-family: var(--font-heading);
+}
+
+.form-basic input[type="text"],
+.form-basic input[type="password"],
+.form-basic input[type="email"],
+.form-basic input[type="date"],
+.form-basic select,
+.form-basic textarea,
+.survey-form .form-input,
+.survey-form .form-textarea,
+.survey-form .form-select {
+    display: block; width: 100%; padding: 12px 15px; font-size: 1em; line-height: 1.5;
+    color: var(--color-body-text); background-color: var(--color-white); background-clip: padding-box;
+    border: 1px solid var(--color-border); border-radius: 5px; font-family: var(--font-body);
+    transition: border-color .15s ease-in-out, box-shadow .15s ease-in-out;
+}
+.form-basic input:focus,
+.form-basic select:focus,
+.form-basic textarea:focus,
+.survey-form input:focus,
+.survey-form textarea:focus,
+.survey-form select:focus {
+    border-color: var(--color-primary); outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(74, 144, 226, .25); /* Adjusted shadow color */
+}
+.form-basic textarea, .survey-form .form-textarea { min-height: 120px; }
+.form-basic select, .survey-form select { height: calc(1.5em + 24px + 2px); }
+.form-basic small, .survey-form small { font-size: 0.875em; color: var(--color-secondary); display: block; margin-top: 5px; }
+
+/* == Specific Survey Form Styling == */
+.survey-container h1 { text-align: center; color: var(--color-dark); margin-bottom: 15px; }
+.survey-description { text-align: center; color: var(--color-secondary); margin-bottom: 30px; padding-bottom: 20px; border-bottom: 1px solid var(--color-medium-light); font-size: 1.1em; }
+.survey-form fieldset.question-group { border: 1px solid var(--color-medium-light); padding: 25px; margin-bottom: 30px; border-radius: 5px; background-color: #fdfdfd; }
+.survey-form fieldset.question-group legend { font-size: 1.2em; color: var(--color-dark); margin-bottom: 18px; padding: 0; border-bottom: none; font-weight: 600;}
+.required-indicator { color: var(--color-danger); font-weight: 600; margin-left: 4px; display: inline; }
+.radio-option, .checkbox-option { margin-bottom: 12px; display: block; }
+.radio-option label, .checkbox-option label { font-weight: normal; display: inline-flex; align-items: center; cursor: pointer; font-size: 1em; color: var(--color-body-text); }
+.survey-form input[type="radio"], .survey-form input[type="checkbox"] {
+    margin-right: 10px; margin-top: -1px; flex-shrink: 0; height: 1.2em; width: 1.2em; /* Slightly larger */ accent-color: var(--color-primary); /* Color checked state */
+}
+.submit-button { /* Also targets survey submit button */
+    display: block; width: 100%; padding: 12px 20px; font-size: 1.1em; font-weight: 500; margin-top: 25px;
+}
+
+
+/* == Homepage Survey Cards == */
+.survey-card-list { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 25px; margin-top: 25px; }
+.survey-card { border: 1px solid var(--color-border); padding: 25px; border-radius: 8px; background: var(--color-white); box-shadow: 0 2px 5px rgba(0,0,0,0.08); display: flex; flex-direction: column; transition: box-shadow 0.2s ease-in-out, transform 0.2s ease; }
+.survey-card:hover { box-shadow: 0 5px 15px rgba(0,0,0,0.12); transform: translateY(-3px); }
+.survey-card h3 { margin-top: 0; margin-bottom: 12px; font-size: 1.3em; color: var(--color-dark); font-weight: 600; }
+.survey-card p { font-size: 1em; color: var(--color-body-text); flex-grow: 1; margin-bottom: 20px; line-height: 1.6; }
+.survey-card a.button-take-survey { display: inline-block; margin-top: auto; padding: 10px 20px; background-color: var(--color-primary); color: var(--color-white); text-align: center; text-decoration: none; border-radius: 5px; transition: background-color 0.2s ease; font-weight: 500; border: 1px solid var(--color-primary); }
+.survey-card a.button-take-survey:hover { background-color: var(--color-primary-dark); border-color: var(--color-primary-dark); color: var(--color-white); }
+.no-surveys { text-align: center; color: var(--color-secondary); padding: 40px 20px; font-size: 1.1em; background-color: var(--color-light); border: 1px dashed var(--color-border); border-radius: 5px; margin-top: 30px; }
+
+/* == Admin Panel Specifics == */
+.admin-header { background-color: var(--color-dark); color: var(--color-white); padding: 15px 40px; margin-bottom: 30px; display: flex; justify-content: space-between; align-items: center; }
+.admin-header h1 { color: var(--color-white); margin: 0; font-size: 1.6em; font-weight: 600; }
+.admin-header nav a { color: #e9ecef; margin-left: 20px; font-size: 0.95em; font-weight: 500;}
+.admin-header nav a:hover { color: var(--color-primary); text-decoration: none; }
+.admin-footer { color: var(--color-secondary); border-top: 1px solid var(--color-medium-light); }
+.admin-container h2 { color: var(--color-dark); margin-bottom: 25px; border-bottom: 1px solid var(--color-medium-light); padding-bottom: 15px; font-weight: 600; }
+
+/* Admin Table Styling */
+.admin-table { width: 100%; border-collapse: collapse; margin-top: 25px; font-size: 0.95em; }
+.admin-table th, .admin-table td { border: 1px solid var(--color-border); padding: 12px 15px; text-align: left; vertical-align: middle; }
+.admin-table th { background-color: var(--color-light); font-weight: 600; border-bottom-width: 2px; border-bottom-color: #adb5bd; /* Darker border for header */ white-space: nowrap; }
+.admin-table tr:nth-child(even) { background-color: var(--color-light); }
+.admin-table tr:hover { background-color: #f1f4f7; }
+.admin-table td:last-child { white-space: nowrap; width: auto; text-align: right; padding-right: 20px; }
+
+/* Admin Report Styling */
+.filter-form { padding: 20px; background: var(--color-light); border:1px solid var(--color-border); border-radius: 5px; margin-bottom:30px; display:flex; align-items:flex-end; gap: 20px; flex-wrap:wrap; }
+.filter-form label { font-weight: 500; color: var(--color-body-text); }
+.filter-form select, .filter-form input[type="date"] { border: 1px solid var(--color-border); background-color: var(--color-white); }
+
+#charts-container { margin-top: 30px; margin-bottom: 30px; display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 35px; }
+.chart-block { padding: 25px; border: 1px solid var(--color-border); background: var(--color-white); border-radius: 5px; box-shadow: 0 1px 3px rgba(0,0,0,0.05); }
+.chart-block h5 { margin-top: 0; margin-bottom: 20px; font-size: 1.2em; font-weight: 500; border-bottom: 1px solid var(--color-medium-light); padding-bottom: 12px; color: var(--color-dark); }
+
+.raw-response-block { margin-bottom: 30px; }
+.raw-response-block h5 { margin-top: 0; margin-bottom: 15px; font-size: 1.2em; font-weight: 500; }
+.raw-response-block ul { list-style: none; margin: 0; padding: 0; max-height: 300px; overflow-y: auto; border: 1px solid var(--color-border); border-radius: 4px; background-color: var(--color-light); }
+.raw-response-block li { margin-bottom: 0; padding: 12px 15px; border-bottom: 1px dotted var(--color-border); font-size: 0.95em; line-height: 1.5; }
+.raw-response-block li:last-child { border-bottom: none; }
+.raw-responses { font-size: 0.9em; } /* Smaller font for raw data table */
+
+/* == Messages (Success/Error - General) == */
+.message { padding: 15px 20px; margin-bottom: 25px; border: 1px solid transparent; border-radius: 5px; font-size: 1em; }
+.message.success { color: #0f5132; background-color: #d1e7dd; border-color: #badbcc; }
+.message.error { color: #842029; background-color: #f8d7da; border-color: #f5c2c7; }
+p.error-inline { padding: 5px 8px; margin-top: 5px; display: inline-block; font-size: 0.9em; color: #842029; background-color: #f8d7da; border: 1px solid #f5c2c7; border-radius: 3px;}
+
+
+/* == Responsiveness == */
+@media (max-width: 992px) {
+    .admin-container, .main-container { max-width: 96%; padding: 20px 25px; }
+    #charts-container { grid-template-columns: 1fr; gap: 25px; }
+    h1 { font-size: 2em; } h2 { font-size: 1.7em; } h3 { font-size: 1.4em; }
+}
+
+@media (max-width: 768px) {
+    body { font-size: 15px; }
+    .survey-container { margin: 20px 15px; padding: 25px; }
+    .admin-container, .main-container { padding: 20px; }
+    .admin-header { flex-direction: column; align-items: flex-start; padding: 15px 20px; }
+    .admin-header nav { margin-top: 10px; margin-left: -15px; /* Adjust alignment */}
+    .filter-form { gap: 10px; flex-direction: column; align-items: stretch; }
+    .filter-form div { width: 100%; }
+    .filter-form button, .filter-form a.button { width: 100%; margin-top: 5px; margin-right: 0; text-align: center; }
+    .admin-table th, .admin-table td { padding: 10px 8px; font-size: 0.9em; }
+    .action-link { margin: 0 2px; }
+    .admin-table td:last-child { padding-right: 8px; }
+    #charts-container { gap: 20px; }
+    .chart-block { padding: 20px; }
+
+}
+
+@media (max-width: 480px) {
+    body { line-height: 1.6; }
+    .survey-container { margin: 10px; padding: 20px; border: none; box-shadow: none; }
+    .admin-container { margin: 10px; padding: 15px; }
+    h1 { font-size: 1.6em; } h2 { font-size: 1.4em; } h3 { font-size: 1.2em; }
+    .survey-description { font-size: 1em; }
+    .survey-form fieldset.question-group { padding: 15px; }
+    .form-basic input[type="text"], .form-basic input[type="password"], .form-basic input[type="email"], .form-basic select, .form-basic textarea,
+    .survey-form input, .survey-form textarea, .survey-form select { padding: 10px 12px; font-size: 1em; }
+    .button, button[type="submit"] { padding: 10px 15px; font-size: 1em; }
+    #charts-container { grid-template-columns: 1fr; }
+    .chart-block { padding: 15px; }
+    .filter-form { padding: 15px; }
+}
+
+
+/* Styles for the new public footer */
+.public-footer {
+    text-align: center;
+    margin-top: 50px; /* More space above */
+    padding: 25px 15px;
+    border-top: 1px solid var(--color-border);
+    font-size: 0.9em;
+    color: var(--color-secondary);
+}
+.public-footer p {
+    margin: 0;
+    line-height: 1.5;
+}
+.public-footer a {
+    color: var(--color-link); /* Use variable */
+    font-weight: 500; /* Slightly bolder link */
+}
+.public-footer a:hover {
+    color: var(--color-link-hover);
+}
+.public-footer span { /* Copyright text */
+    font-size: 0.9em;
+    display: block; /* Put copyright on new line */
+    margin-top: 5px;
+}
