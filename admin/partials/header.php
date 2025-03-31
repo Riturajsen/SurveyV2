@@ -22,6 +22,7 @@ $is_logged_in = (isset($_SESSION['admin_logged_in']) && $_SESSION['admin_logged_
             <?php if ($is_logged_in): ?>
                 <a href="index.php">Dashboard</a> |
                 <a href="manage_surveys.php">Manage Surveys</a> |
+                <a href="manage_admins.php">Manage Admins</a> |
                 <a href="logout.php">Logout (<?php echo escape_html($_SESSION['admin_username'] ?? ''); ?>)</a>
             <?php else: ?>
                 <span>Please login</span>
