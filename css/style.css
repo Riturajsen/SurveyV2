@@ -389,3 +389,23 @@ p.error-inline { padding: 5px 8px; margin-top: 5px; display: inline-block; font-
     display: block; /* Put copyright on new line */
     margin-top: 5px;
 }
+/* --- Add to css/style.css --- */
+
+/* ... (all previous styles) ... */
+
+/* == Conditional Questions Styling == */
+.conditional-question {
+    display: none; /* Hide conditional questions by default */
+    border-left: 3px solid #87CEEB; /* Light Sky Blue border to indicate conditional */
+    padding-left: 20px; /* Indent conditional questions */
+    margin-left: 5px; /* Adjust overall alignment */
+    margin-bottom: 30px; /* Ensure consistent spacing */
+    /* Optional: Add transition for smooth show/hide */
+    transition: opacity 0.4s ease-out;
+    opacity: 0; /* Start transparent for transition */
+}
+/* Style for when shown by JS */
+.conditional-question.visible { /* Consider using class toggling in JS */
+    display: block;
+    opacity: 1; /* Fade in */
+}
